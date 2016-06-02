@@ -1,9 +1,6 @@
 dmg Cookbook
 ============
 
-[![Build Status](https://travis-ci.org/chef-cookbooks/dmg.svg?branch=master)](https://travis-ci.org/chef-cookbooks/dmg)
-[![Cookbook Version](https://img.shields.io/cookbook/v/dmg.svg)](https://supermarket.chef.io/cookbooks/dmg)
-
 Lightweight resource and provider to install OS X applications (.app) from dmg files.
 
 
@@ -47,6 +44,7 @@ Optionally, the LWRP can install an "mpkg" or "pkg" package using installer(8).
 - `dmg_name` - Specify the name of the dmg if it is not the same as `app`, or if the name has spaces.
 - `dmg_passphrase` - Specify a passphrase to use to unencrypt the dmg while mounting.
 - `accept_eula` - Specify whether to accept the EULA.  Certain dmgs require acceptance of EULA before mounting.  Can be true or false, defaults to false.
+- `install_untrusted` - Specify whether to install an untrusted package, aka if to proceed if the signature cannot be verified. This only applies to `pkg` and `mpkg`, its ignored otherwise. Can be true or false, defaults to false.
 - `headers` - Allows custom HTTP headers (like cookies) to be set on the remote_file resource.
 
 #### Examples
@@ -127,7 +125,9 @@ end
 License & Authors
 -----------------
 
-**Author:** Cookbook Engineering Team (<cookbooks@chef.io>)
+**Forked and modified by:** Testfabrik Consulting & Solutions AG (<service@testfabrik.com>)
+
+**Original Author:** Cookbook Engineering Team (<cookbooks@chef.io>)
 
 **Copyright:** 2011-2015, Chef Software, Inc.
 ```
